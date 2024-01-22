@@ -27,7 +27,7 @@ public class Main {
         Kunde kunde3 = new Firmenkunde("Lagerhaus Tulln");
 
         //Konten anlegen
-        Konto girokonto = new Girokonto("AT00786598324571", 3865, kunde1);
+        Konto girokonto = new Girokonto("AT00786598324571", 3865, kunde1, 400);
         Konto termingeldkonto = new Termingeldkonto("AT00786598324573", 10000.00, kunde1, 2.00, 24);
         Konto sparplankonto = new Sparplankonto("AT00786598324578", 10000.00, kunde2, 2.00, 24, 150);
         Konto girokonto2 = new Girokonto("AT00786598324579", 44444, kunde3);
@@ -49,6 +49,7 @@ public class Main {
         konten.add(girokonto2);
         konten.add(sparplankonto);
 
+        termingeldkonto.einzahlen(500);
     }
 
     public static void printKonten(Collection<Konto> konten) {

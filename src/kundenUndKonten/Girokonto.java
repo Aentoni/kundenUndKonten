@@ -8,6 +8,11 @@ public class Girokonto extends Konto {
         super(iban, kontostand, kunde);
     }
 
+    public Girokonto(String iban, double kontostand, Kunde kunde, double disporahmen) {
+        super(iban, kontostand, kunde);
+        this.disporahmen = disporahmen;
+    }
+
     public double getDisporahmen() {
         return disporahmen;
     }
@@ -15,7 +20,6 @@ public class Girokonto extends Konto {
     public void setDisporahmen(double disporahmen) {
         this.disporahmen = disporahmen;
     }
-
 
     @Override
     public void auszahlen(double betrag) {

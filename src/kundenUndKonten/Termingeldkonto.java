@@ -12,29 +12,30 @@ public class Termingeldkonto extends Geldeinlage {
     }
 
     @Override
-    public void einzahlen(double betrag) {
-        System.out.println("Keine Einzahlung bei Termingeldkonten möglich.");
+    public void einzahlen(double betrag) throws IllegalArgumentException {
+       throw new IllegalArgumentException("Keine Einzahlung bei Termingeldkonten möglich.");
     }
 
     @Override
-    public void auszahlen(double betrag) {
-        System.out.println("Keine Auszahlung bei Einlagenkonten möglich.");
+    public void auszahlen(double betrag) throws IllegalArgumentException{
+        throw new IllegalArgumentException("Keine Auszahlung bei Einlagenkonten möglich.");
     }
 
     @Override
     public double getPrognose() {
         double zinseszins = getKontostand() * Math.pow(1 + getZinssatz(), getLaufzeitMonate());
-    return Math.round(zinseszins*100.0)/100.0;
+        return Math.round(zinseszins * 100.0) / 100.0;
     }
         /*
     getPrognose() errechnet das voraussichtliche Endkapital bei Geldeinlage-Konten. Für
-    Termingeldkonten wird die Zinseszins-Formel angewendet. (Kn = K0 * (1 + p)^n) Bei Sparplankonten wird
-    einfachheitshalber der Zinssatz nicht berücksichtigt.
+    Termingeldkonten wird die Zinseszins-Formel angewendet. (Kn = K0 * (1 + p)^n).
      */
 
     @Override
     public String toString() {
         return getIban() + " (Termingeldkonto), Kontostand: " + getKontostand() + ", Zinsatz: " + getZinssatz() + ", Laufzeit: " + getLaufzeitMonate() + ", Prognose: " + getPrognose();
-    };
+    }
+
+    ;
 }
 
